@@ -6,16 +6,21 @@ project(my_smart_dog)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  rospy
+  rosserial_arduino
   std_msgs
   message_generation
 )
 
-add_message_files(FILES msgLegs.msg)
+add_message_files(FILES 
+	msgLegs.msg
+	msgDriving.msg
+)
 add_service_files(FILES srvLegs.srv)
 
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(DEPENDENCIES std_msgs)
+generate_messages(DEPENDENCIES std_msgs rosserial_arduino)
 
 ###################################
 ## catkin specific configuration ##
@@ -29,7 +34,7 @@ generate_messages(DEPENDENCIES std_msgs)
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES my_smart_dog
-  CATKIN_DEPENDS roscpp std_msgs
+  CATKIN_DEPENDS roscpp rospy rosserial_arduino std_msgs
   DEPENDS system_lib
 )
 

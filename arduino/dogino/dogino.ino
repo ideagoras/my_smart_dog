@@ -6,6 +6,7 @@
 #include <ros.h>
 #include <std_msgs/String.h>
 #include <std_msgs/Empty.h>
+#include <my_smart_dog/msgDriving.h>
 
 ros::NodeHandle  nh;
 

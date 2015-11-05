@@ -1,0 +1,12 @@
+<launch>
+	<group ns="ns1">
+		<node pkg="my_smart_dog" type="MDLegsPublisher" name="msgPub1"/>
+		<node pkg="my_smart_dog" type="MDLegsSubscriber" name="msgSub1"/>
+	</group>
+
+	<group ns="ns2">
+		<node pkg="my_smart_dog" type="MDLegsPublisher" name="msgPub2"/>
+		<node pkg="my_smart_dog" type="MDLegsSubscriber" name="msgSub2"/>
+	</group>
+	
+</launch>
