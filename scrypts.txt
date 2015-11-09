@@ -1,0 +1,13 @@
+rm -rf ~/work/arduino/libraries/ros_lib/
+
+rosrun rosserial_arduino make_libraries.py /home/telltale/work/arduino/libraries/ my_smart_dog
+
+roscore
+
+rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0
+
+rostopic echo /logger
+
+rostopic pub -1 /my_smart_dog_echo std_msgs/String "abcd1234"
+
+rostopic pub -1 /msgDriving my_smart_dog/msgDriving "{velocity: 3, direction: 2}"

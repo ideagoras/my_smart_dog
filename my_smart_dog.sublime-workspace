@@ -8,77 +8,28 @@
 	"buffers":
 	[
 		{
-			"file": "package.xml",
-			"settings":
-			{
-				"buffer_size": 2149,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "CMakeLists.txt",
 			"settings":
 			{
-				"buffer_size": 2150,
+				"buffer_size": 2239,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/MDLegsServiceServer.cpp",
+			"file": "msg/msgDriving.msg",
 			"settings":
 			{
-				"buffer_size": 1142,
+				"buffer_size": 30,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "launch/union.launch",
+			"file": "scrypts.txt",
 			"settings":
 			{
-				"buffer_size": 347,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/MDLegsServiceClient.cpp",
-			"settings":
-			{
-				"buffer_size": 821,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "srv/srvLegs.srv",
-			"settings":
-			{
-				"buffer_size": 32,
+				"buffer_size": 374,
 				"line_ending": "Unix",
-				"name": "srvLegs.srv"
-			}
-		},
-		{
-			"file": "msg/msgLegs.msg",
-			"settings":
-			{
-				"buffer_size": 10,
-				"line_ending": "Unix",
-				"name": "int32 data"
-			}
-		},
-		{
-			"file": "src/MDLegsPublisher.cpp",
-			"settings":
-			{
-				"buffer_size": 474,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/MDLegsSubscriber.cpp",
-			"settings":
-			{
-				"buffer_size": 378,
-				"line_ending": "Unix"
+				"name": "scrypt"
 			}
 		}
 	],
@@ -106,6 +57,26 @@
 	},
 	"file_history":
 	[
+		"/home/telltale/work/arduino/libraries/ros_lib/my_smart_dog/msgDriving.h",
+		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/my_smart_dog/msgDriving.h",
+		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/dogino/dogino.ino",
+		"/home/telltale/catkin_ws/src/my_smart_dog/package.xml",
+		"/home/telltale/catkin_ws/src/my_smart_dog/msg/msgLegs.msg",
+		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/rosserial_arduino/Adc.h",
+		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/ros.h",
+		"/home/telltale/work/arduino-1.6.6/libraries/Servo/src/Servo.h",
+		"/home/telltale/Arduino/libraries/ros_lib/my_smart_dog/msgDriving.h",
+		"/home/telltale/catkin_ws/devel/include/my_smart_dog/msgDriving.h",
+		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/actionlib_msgs/GoalStatusArray.h",
+		"/home/telltale/catkin_ws/devel/include/my_smart_dog/msgLegs.h",
+		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/rosserial_msgs/RequestParam.h",
+		"/home/telltale/catkin_ws/src/my_smart_dog/CMakeLists.txt",
+		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsServiceServer.cpp",
+		"/home/telltale/catkin_ws/src/my_smart_dog/launch/union.launch",
+		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsServiceClient.cpp",
+		"/home/telltale/catkin_ws/src/my_smart_dog/srv/srvLegs.srv",
+		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsPublisher.cpp",
+		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsSubscriber.cpp",
 		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsServiceClient",
 		"/home/telltale/.config/sublime-text-2/Packages/User/ros.sublime-build",
 		"/home/telltale/catkin_ws/src/my_first_ros_pkg/my_first_ros_pkg.sublime-project",
@@ -144,51 +115,51 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "package.xml",
+					"file": "CMakeLists.txt",
 					"settings":
 					{
-						"buffer_size": 2149,
+						"buffer_size": 2239,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1410,
-								1410
+								551,
+								551
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/XML/XML.tmLanguage",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 210.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "CMakeLists.txt",
+					"file": "msg/msgDriving.msg",
 					"settings":
 					{
-						"buffer_size": 2150,
+						"buffer_size": 30,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1808,
-								1808
+								30,
+								30
 							]
 						],
 						"settings":
@@ -196,192 +167,31 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 420.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/MDLegsServiceServer.cpp",
+					"file": "scrypts.txt",
 					"settings":
 					{
-						"buffer_size": 1142,
+						"buffer_size": 374,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								157,
-								157
+								373,
+								373
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 42.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "launch/union.launch",
-					"settings":
-					{
-						"buffer_size": 347,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								347,
-								347
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
+							"auto_name": "scrypt",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/MDLegsServiceClient.cpp",
-					"settings":
-					{
-						"buffer_size": 821,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								534,
-								534
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "srv/srvLegs.srv",
-					"settings":
-					{
-						"buffer_size": 32,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								32,
-								32
-							]
-						],
-						"settings":
-						{
-							"auto_name": "srvLegs.srv",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "msg/msgLegs.msg",
-					"settings":
-					{
-						"buffer_size": 10,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10,
-								10
-							]
-						],
-						"settings":
-						{
-							"auto_name": "int32 data",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/MDLegsPublisher.cpp",
-					"settings":
-					{
-						"buffer_size": 474,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								129,
-								129
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src/MDLegsSubscriber.cpp",
-					"settings":
-					{
-						"buffer_size": 378,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								330,
-								330
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -452,6 +262,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 192.0,
+	"side_bar_width": 206.0,
 	"status_bar_visible": true
 }
