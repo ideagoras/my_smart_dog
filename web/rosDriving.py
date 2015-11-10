@@ -1,8 +1,9 @@
 import logging
-import roslib
+import roslib; roslib.load_manifest('my_smart_dog')
 import rospy
 import sys
 from my_smart_dog.srv import *
+from my_smart_dog.msg import *
 
 def changeDirection(direction):
 	logging.debug('changeDirection: %s' % direction)
