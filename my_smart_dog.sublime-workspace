@@ -8,28 +8,41 @@
 	"buffers":
 	[
 		{
+			"file": "src/MDLegsServiceClient.cpp",
+			"settings":
+			{
+				"buffer_size": 821,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "#include \"ros/ros.h\"\n#include \"my_smart_dog/srvLegs.h\"\n\n#define PLUS		1\n#define MINUS	2\n#define MULTIPLICATION	3\n#define DIVISION		4\n\nint g_operator = PLUS;\ngedit\nbool calculation(my_smart_dog::srvLegs::Request &req, my_smart_dog::srvLegs::Response &res)\n{\n	switch (g_operator) {\n		case PLUS:\n			res.result = req.a + req.b;\n		break;\n		case MINUS:\n			res.result = req.a - req.b;\n		break;\n		case MULTIPLICATION:\n			res.result = req.a * req.b;\n		break;\n		case DIVISION:\n			if (req.b == 0) {\n				res.result = 0;\n			} else {\n				res.result = req.a / req.b;\n			}\n		break;\n	}\n	\n	ROS_INFO(\"request:x=%ld y=%ld\", (long int)req.a, (long int)req.b);\n	ROS_INFO(\"sending back response:[%ld]\", (long int)res.result);\n	return true;\n}\n\nint main(int argc, char **argv)\n{\n	ros::init(argc, argv, \"MDLegsServiceServer\");\n	ros::NodeHandle nodeHandle;\n\n	nodeHandle.setParam(\"calculation_method\", PLUS);\n	ros::ServiceServer serviceServer = nodeHandle.advertiseService(\"srvLegs\", calculation);\n\n	ROS_INFO(\"ready srv server!\");\n\n	ros::Rate rate(10);\n	while (1) {\n		nodeHandle.getParam(\"calculation_method\", g_operator);\n		ros::spinOnce();\n		rate.sleep();\n	}\n	\n	return 0;\n}",
+			"file": "src/MDLegsServiceServer.cpp",
+			"file_size": 1142,
+			"file_write_time": 1445312287000000,
+			"settings":
+			{
+				"buffer_size": 1147,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "rm -rf ~/work/arduino/libraries/ros_lib/\n\nrosrun rosserial_arduino make_libraries.py ~/work/arduino/libraries/ my_smart_dog\n\nroscore\n\nrosrun rosserial_python serial_node.py _port:=/dev/ttyACM0\n\nrostopic echo /logger\n\nrostopic pub -1 /my_smart_dog_echo std_msgs/String \"abcd1234\"\n\nrostopic pub -1 /msgDriving my_smart_dog/msgDriving \"{velocity: 3, direction: 2}\"",
+			"file": "scrypts.txt",
+			"file_size": 374,
+			"file_write_time": 1447040787000000,
+			"settings":
+			{
+				"buffer_size": 361,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "CMakeLists.txt",
 			"settings":
 			{
-				"buffer_size": 2239,
+				"buffer_size": 2241,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "msg/msgDriving.msg",
-			"settings":
-			{
-				"buffer_size": 30,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scrypts.txt",
-			"settings":
-			{
-				"buffer_size": 374,
-				"line_ending": "Unix",
-				"name": "scrypt"
 			}
 		}
 	],
@@ -57,26 +70,15 @@
 	},
 	"file_history":
 	[
-		"/home/telltale/work/arduino/libraries/ros_lib/my_smart_dog/msgDriving.h",
-		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/my_smart_dog/msgDriving.h",
-		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/dogino/dogino.ino",
-		"/home/telltale/catkin_ws/src/my_smart_dog/package.xml",
-		"/home/telltale/catkin_ws/src/my_smart_dog/msg/msgLegs.msg",
-		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/rosserial_arduino/Adc.h",
-		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/ros.h",
-		"/home/telltale/work/arduino-1.6.6/libraries/Servo/src/Servo.h",
-		"/home/telltale/Arduino/libraries/ros_lib/my_smart_dog/msgDriving.h",
-		"/home/telltale/catkin_ws/devel/include/my_smart_dog/msgDriving.h",
-		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/actionlib_msgs/GoalStatusArray.h",
-		"/home/telltale/catkin_ws/devel/include/my_smart_dog/msgLegs.h",
-		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/rosserial_msgs/RequestParam.h",
 		"/home/telltale/catkin_ws/src/my_smart_dog/CMakeLists.txt",
 		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsServiceServer.cpp",
 		"/home/telltale/catkin_ws/src/my_smart_dog/launch/union.launch",
 		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsServiceClient.cpp",
 		"/home/telltale/catkin_ws/src/my_smart_dog/srv/srvLegs.srv",
+		"/home/telltale/catkin_ws/src/my_smart_dog/msg/msgLegs.msg",
 		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsPublisher.cpp",
 		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsSubscriber.cpp",
+		"/home/telltale/catkin_ws/src/my_smart_dog/package.xml",
 		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsServiceClient",
 		"/home/telltale/.config/sublime-text-2/Packages/User/ros.sublime-build",
 		"/home/telltale/catkin_ws/src/my_first_ros_pkg/my_first_ros_pkg.sublime-project",
@@ -120,51 +122,51 @@
 			[
 				{
 					"buffer": 0,
-					"file": "CMakeLists.txt",
+					"file": "src/MDLegsServiceClient.cpp",
 					"settings":
 					{
-						"buffer_size": 2239,
+						"buffer_size": 821,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								551,
-								551
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 210.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "msg/msgDriving.msg",
+					"file": "src/MDLegsServiceServer.cpp",
 					"settings":
 					{
-						"buffer_size": 30,
+						"buffer_size": 1147,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								30,
-								30
+								162,
+								162
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -177,24 +179,51 @@
 					"file": "scrypts.txt",
 					"settings":
 					{
-						"buffer_size": 374,
+						"buffer_size": 361,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								373,
-								373
+								278,
+								278
 							]
 						],
 						"settings":
 						{
-							"auto_name": "scrypt",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "CMakeLists.txt",
+					"settings":
+					{
+						"buffer_size": 2241,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1107,
+								1107
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 524.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -262,6 +291,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 206.0,
+	"side_bar_width": 192.0,
 	"status_bar_visible": true
 }

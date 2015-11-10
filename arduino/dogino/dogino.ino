@@ -1,9 +1,3 @@
-#if (ARDUINO >= 100)
- #include <Arduino.h>
-#else
- #include <WProgram.h>
-#endif
-
 #include <ros.h>
 #include <my_smart_dog/msgDriving.h>
 #include <std_msgs/String.h>
@@ -21,27 +15,32 @@ ros::Subscriber<std_msgs::String> subscribeEcho("my_smart_dog_echo", echoCallbac
 std_msgs::String str_msg;
 ros::Publisher logger("logger", &str_msg);
 
-char hello[] = "hello my_smart_dog world!";
+char hello[64] = "hello my_smart_dog world!";
 
 void msgDrivingCallback( const my_smart_dog::msgDriving& msgDriving) {
-  char buffer[52];
-//  sprintf(buffer, "d=%d v=%d .", msgDriving.direction, msgDriving.velocity);
-  sprintf(buffer, "v=%d d=%d.", msgDriving.velocity, msgDriving.direction);
-  
+  //  std_msgs::String log;
+  //
+  //  char buffer[52];
+  //  sprintf(buffer, "v=%d", msgDriving.velocity);
+  //  log.data = buffer;
+  //  logger.publish( &log );
+  //
+  //  sprintf(buffer, "d=%d", msgDriving.direction);
+  //  log.data = buffer;
+  //  logger.publish( &log );
+
+  String message;
+  message += "v=";
+  message += msgDriving.velocity;
+
   std_msgs::String log;
-  log.data = buffer;
-  logger.publish( &log );
-  
-  //  digitalWrite(13, HIGH-digitalRead(13));   // blink the led
+  log.data = message.c_str();
+  logger.publish(&log);
 }
 
 void echoCallback( const std_msgs::String& message) {
-  
-//  std_msgs::String log;
-//  log.data = "echoCallback";
-//  logger.publish( &log );
+
   logger.publish( &message );
-//  str_msg.data = message.data;
 }
 
 void setup()
@@ -55,8 +54,6 @@ void setup()
 
 void loop()
 {
-  str_msg.data = hello;
-  logger.publish( &str_msg );
   nodeHandle.spinOnce();
   delay(3000);
 }
