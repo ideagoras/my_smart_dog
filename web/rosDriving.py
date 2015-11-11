@@ -6,6 +6,18 @@ from my_smart_dog.srv import *
 from my_smart_dog.msg import *
 from std_msgs.msg import String
 
+drivingPub = None
+
+def setup():
+	try:
+		global drivingPub
+		drivingPub = rospy.Publisher('msgDriving', msgDriving, queue_size=10)
+		rospy.init_node('ros_driving_node')
+		print "setup rosDriving"
+	except rospy.ServiceException, e:
+		print "Service call failed: %s"% e
+	
+
 def changeDirection(direction):
 	logging.debug('changeDirection: %s' % direction)
 	#add_two_ints_client(4, 5)
@@ -22,17 +34,26 @@ def changeDirection(direction):
 	elif "stop" == direction:
 		directionNumber = 0
 
-	sendDirection(directionNumber)
+	sendMsgDriving(directionNumber, 0)
 	return
 
-def sendDirection(direction):
+def changeSpeed(speed):
+	logging.debug('changeSpeed: %s' % speed)
+	
+	speedNumber = 0
+	if "up" == speed:
+		speedNumber = 1
+	elif "down" == speed:
+		speedNumber = -1
+	sendMsgDriving(-1, speedNumber)
+	return
+
+def sendMsgDriving(direction, velocity):
 	try:
-		publisher = rospy.Publisher('msgDriving', msgDriving, queue_size=10)
-		rospy.init_node('ros_driving_node')
 		msg = msgDriving()
 		msg.direction = direction;
-		msg.velocity = -1;
-		publisher.publish(msg)
+		msg.velocity = velocity;
+		drivingPub.publish(msg)
 		logging.debug('success send')
 	except rospy.ServiceException, e:
 		print "Service call failed: %s"% e
@@ -40,9 +61,7 @@ def sendDirection(direction):
 
 def sendEcho():
 	try:
-		publisher = rospy.Publisher('my_smart_dog_echo', String, queue_size=10)
-		rospy.init_node('ros_driving_node')
-		publisher.publish("hello echo")
+		drivingPub.publish("hello echo")
 		logging.debug('success send')
 	except rospy.ServiceException, e:
 		print "Service call failed: %s"% e
@@ -59,12 +78,8 @@ def add_two_ints_client(x, y):
     		print "Service call failed: %s"% e
 
 
-def changeSpeed(speed):
-	logging.debug('changeSpeed: %s' % speed)
-	
-	return
-
 if __name__ == "__main__":
 	logging.basicConfig(level=logging.DEBUG)
+	setup()
 	changeDirection('left')
 	changeSpeed(100)

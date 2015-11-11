@@ -15,12 +15,13 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(FILES 
 	msgLegs.msg
 	msgDriving.msg
+  msgDrivingInfo.msg
 )
 add_service_files(FILES srvLegs.srv)
 
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(DEPENDENCIES std_msgs rosserial_arduino)
+generate_messages(DEPENDENCIES std_msgs roscpp rosserial_arduino)
 
 ###################################
 ## catkin specific configuration ##

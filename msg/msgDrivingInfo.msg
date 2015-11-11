@@ -1,0 +1,7 @@
+float32 XAxis
+float32 YAxis
+float32 ZAxis
+float32 headingDegrees
+float32 fixedHeadingDegrees
+float32 smoothHeadingDegrees
+string message

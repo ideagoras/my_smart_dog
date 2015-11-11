@@ -19,3 +19,5 @@ python src/my_smart_dog/web/drivingController.py
 sudo apt-get install python-pip
 
 sudo pip install flask
+
+python src/my_smart_dog/web/rosDriving.py

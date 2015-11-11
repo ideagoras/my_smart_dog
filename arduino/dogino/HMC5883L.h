@@ -126,3 +126,4 @@ class HMC5883L
 };
 
 #endif
+
