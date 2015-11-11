@@ -55,6 +55,7 @@ void setup()
   //  pinMode(13, OUTPUT);
   nodeHandle.initNode();
   nodeHandle.advertise(logger);
+  nodeHandle.advertise(msgDrivingInfoPublisher);
   nodeHandle.subscribe(subscribeMsgDriving);
   nodeHandle.subscribe(subscribeEcho);
 

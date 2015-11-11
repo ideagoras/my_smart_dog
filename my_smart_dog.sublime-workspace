@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"spee",
+				"speedNumber"
+			],
+			[
+				"di",
+				"directionNumber"
+			],
+			[
 				"res",
 				"resp1"
 			],
@@ -27,7 +35,7 @@
 			"file": "scripts.txt",
 			"settings":
 			{
-				"buffer_size": 513,
+				"buffer_size": 555,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +43,7 @@
 			"file": "web/drivingController.py",
 			"settings":
 			{
-				"buffer_size": 864,
+				"buffer_size": 884,
 				"line_ending": "Unix",
 				"name": "msgDriving.py"
 			}
@@ -53,16 +61,16 @@
 			"file": "web/rosDriving.py",
 			"settings":
 			{
-				"buffer_size": 1208,
+				"buffer_size": 2001,
 				"line_ending": "Unix",
 				"name": "import logging"
 			}
 		},
 		{
-			"file": "arduino/dogino/dogino.ino",
+			"file": "msg/msgDrivingInfo.msg",
 			"settings":
 			{
-				"buffer_size": 1418,
+				"buffer_size": 136,
 				"line_ending": "Unix"
 			}
 		}
@@ -91,18 +99,22 @@
 	},
 	"file_history":
 	[
+		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/dogino/dogino.ino",
+		"/home/telltale/catkin_ws/devel/include/my_smart_dog/msgDrivingInfo.h",
+		"/home/telltale/catkin_ws/devel/include/my_smart_dog/msgDriving.h",
+		"/home/telltale/catkin_ws/src/my_smart_dog/msg/msgDriving.msg",
+		"/home/telltale/catkin_ws/src/my_smart_dog/msg/msgDrivingInfo.msg",
+		"/home/telltale/catkin_ws/src/my_smart_dog/CMakeLists.txt",
 		"/home/telltale/catkin_ws/src/my_smart_dog/python/add_two_ints_server.py",
 		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/msgDriving/msgDriving.ino",
 		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/msgDriving/SDMsgDriving.h",
 		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/msgDriving/SDMsgEcho.h",
 		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/msgDriving/SDMsgLogger.h",
-		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/dogino/dogino.ino",
 		"/home/telltale/work/arduino/libraries/ros_lib/ros/node_handle.h",
 		"/home/telltale/work/arduino/libraries/ros_lib/ros.h",
 		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/msgDriving/SDMsgDriving.cpp",
 		"/home/telltale/catkin_ws/src/my_smart_dog/python/add_two_ints_client.py",
 		"/home/telltale/catkin_ws/src/my_smart_dog/srv/srvLegs.srv",
-		"/home/telltale/catkin_ws/src/my_smart_dog/CMakeLists.txt",
 		"/home/telltale/catkin_ws/src/my_smart_dog/package.xml",
 		"/home/telltale/catkin_ws/src/my_smart_dog/web/hello_flask.py",
 		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsServiceClient.cpp",
@@ -149,7 +161,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -157,15 +169,15 @@
 					"file": "scripts.txt",
 					"settings":
 					{
-						"buffer_size": 513,
+						"buffer_size": 555,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								405,
-								405
+								42,
+								42
 							]
 						],
 						"settings":
@@ -183,15 +195,15 @@
 					"file": "web/drivingController.py",
 					"settings":
 					{
-						"buffer_size": 864,
+						"buffer_size": 884,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								149,
-								149
+								827,
+								827
 							]
 						],
 						"settings":
@@ -239,49 +251,48 @@
 					"file": "web/rosDriving.py",
 					"settings":
 					{
-						"buffer_size": 1208,
+						"buffer_size": 2001,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								421,
-								430
+								1083,
+								1083
 							]
 						],
 						"settings":
 						{
 							"auto_name": "import logging",
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 833.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "arduino/dogino/dogino.ino",
+					"file": "msg/msgDrivingInfo.msg",
 					"settings":
 					{
-						"buffer_size": 1418,
+						"buffer_size": 136,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								450,
-								450
+								121,
+								121
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
