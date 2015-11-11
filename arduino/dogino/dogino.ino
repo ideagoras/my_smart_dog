@@ -18,20 +18,12 @@ ros::Publisher logger("logger", &str_msg);
 char hello[64] = "hello my_smart_dog world!";
 
 void msgDrivingCallback( const my_smart_dog::msgDriving& msgDriving) {
-  //  std_msgs::String log;
-  //
-  //  char buffer[52];
-  //  sprintf(buffer, "v=%d", msgDriving.velocity);
-  //  log.data = buffer;
-  //  logger.publish( &log );
-  //
-  //  sprintf(buffer, "d=%d", msgDriving.direction);
-  //  log.data = buffer;
-  //  logger.publish( &log );
-
+  
   String message;
   message += "v=";
   message += msgDriving.velocity;
+  message += " d=";
+  message += msgDriving.direction;
 
   std_msgs::String log;
   log.data = message.c_str();
@@ -55,5 +47,5 @@ void setup()
 void loop()
 {
   nodeHandle.spinOnce();
-  delay(3000);
+  delay(100);
 }
