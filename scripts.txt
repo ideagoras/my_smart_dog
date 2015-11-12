@@ -12,6 +12,8 @@ rostopic pub -1 /my_smart_dog_echo std_msgs/String "abcd1234"
 
 rostopic pub -1 /msgDriving my_smart_dog/msgDriving "{velocity: 3, direction: 2}"
 
+rosrun my_smart_dog add_two_ints_client.py 4 5
+
 rosrun my_smart_dog add_two_ints_server.py
 
 python src/my_smart_dog/web/drivingController.py
@@ -21,3 +23,10 @@ sudo apt-get install python-pip
 sudo pip install flask
 
 python src/my_smart_dog/web/rosDriving.py
+
+#!/bin/bash
+ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
+echo $ip
+echo url="https://www.duckdns.org/update?domains=ideagoras-master&token=5d488539-be0b-454e-b56d-d413c29784f1&ip=$ip$
+
+curl http://ideagoras-master.duckdns.org:21000/
