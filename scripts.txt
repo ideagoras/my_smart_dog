@@ -27,6 +27,7 @@ python src/my_smart_dog/web/rosDriving.py
 #!/bin/bash
 ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
 echo $ip
-echo url="https://www.duckdns.org/update?domains=ideagoras-master&token=5d488539-be0b-454e-b56d-d413c29784f1&ip=$ip$
+echo url="https://www.duckdns.org/update?domains=ideagoras-master&token=5d488539-be0b-454e-b56d-d413c29784f1&ip=$ip" | curl -k -o ~/work/duckdns/duck.log -K -
+echo url="https://www.duckdns.org/update?domains=ideagoras-pi&token=5d488539-be0b-454e-b56d-d413c29784f1&ip=$ip" | curl -k -o ~/work/duckdns/duck.log -K -
 
 curl http://ideagoras-master.duckdns.org:21000/
