@@ -128,4 +128,3 @@ unsigned char DualMC33926MotorShield::getFault()
 {
   return !digitalRead(_nSF);
 }
-

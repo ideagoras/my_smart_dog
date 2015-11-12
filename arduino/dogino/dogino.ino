@@ -1,8 +1,4 @@
-#if ARDUINO >= 100
-#include "Arduino.h"
-#else
-#include "WProgram.h"
-#endif
+#include <Arduino.h>
 
 #include <ros.h>
 #include <my_smart_dog/msgDriving.h>
@@ -16,6 +12,7 @@
 #include "HMC5883L.h"
 
 #include "Compass.h"
+#include "CarHandle.h"
 
 void msgDrivingCallback( const my_smart_dog::msgDriving& msgDriving);
 void echoCallback( const std_msgs::String& message);
@@ -30,19 +27,51 @@ ros::Publisher logger("logger", &str_msg);
 my_smart_dog::msgDrivingInfo msgDrivingInfo;
 ros::Publisher msgDrivingInfoPublisher("msgDrivingInfoPublisher", &msgDrivingInfo);
 
-Compass compass;
+//Compass compass;
+CarHandle carHandle;
 
 void msgDrivingCallback( const my_smart_dog::msgDriving& msgDriving) {
-  
+
   String message;
-  message += "v=";
-  message += msgDriving.velocity;
   message += " d=";
   message += msgDriving.direction;
 
   std_msgs::String log;
   log.data = message.c_str();
   logger.publish(&log);
+
+  switch ( msgDriving.direction )
+  {
+    case CAR_HANDLE_FORWARD:
+      carHandle.forward();
+      break;
+
+    case CAR_HANDLE_BACK:
+      carHandle.back();
+      break;
+
+    case CAR_HANDLE_RIGHT:
+      carHandle.right();
+      break;
+
+    case CAR_HANDLE_LEFT:
+      carHandle.left();
+      break;
+
+    case CAR_SPEED_STOP:
+      carHandle.brake();
+      break;
+
+    case CAR_SPEED_UP:
+      carHandle.speedUp();
+      break;
+    case ( ',' ):
+      carHandle.speedDown();
+      break;
+
+    default:
+      break;
+  }
 }
 
 void echoCallback( const std_msgs::String& message) {
@@ -59,14 +88,16 @@ void setup()
   nodeHandle.subscribe(subscribeMsgDriving);
   nodeHandle.subscribe(subscribeEcho);
 
-  compass.setup();
+//  compass.setup();
+  carHandle.setup();
 }
 
 void loop()
 {
+/*
   CompassInfo compassInfo;
   compass.getCompassInfo(compassInfo);
-  
+
   my_smart_dog::msgDrivingInfo msgDrivingInfo;
   msgDrivingInfo.XAxis = compassInfo.XAxis;
   msgDrivingInfo.YAxis = compassInfo.YAxis;
@@ -74,9 +105,9 @@ void loop()
   msgDrivingInfo.headingDegrees = compassInfo.headingDegrees;
   msgDrivingInfo.fixedHeadingDegrees = compassInfo.fixedHeadingDegrees;
   msgDrivingInfo.smoothHeadingDegrees = compassInfo.smoothHeadingDegrees;
-  
-  msgDrivingInfoPublisher.publish(&msgDrivingInfo);
 
+  msgDrivingInfoPublisher.publish(&msgDrivingInfo);
+*/
   nodeHandle.spinOnce();
   delay(30);
 }

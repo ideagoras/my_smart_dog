@@ -1,2 +1,1 @@
 int32 direction
-int32 velocity
