@@ -48,7 +48,7 @@ def sendMsgDriving(direction, velocity):
 		msg = msgDriving()
 		msg.direction = direction;
 		drivingPub.publish(msg)
-		logging.debug('success send')
+		logging.debug('success send direction=%d' % direction)
 	except rospy.ServiceException, e:
 		print "Service call failed: %s"% e
 	return

@@ -33,5 +33,6 @@ def speed(value):
 
 
 if __name__ == "__main__":
+	logging.basicConfig(level=logging.DEBUG)
 	rosDriving.setup()
 	app.run(host='0.0.0.0', port=21000, debug=True)
