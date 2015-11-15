@@ -27,25 +27,20 @@ def changeDirection(direction):
 		directionNumber = 1
 	elif "right" == direction:
 		directionNumber = 2
-	elif "up" == direction:
+	elif "forward" == direction:
 		directionNumber = 3
+	elif "back" == direction:
+		directionNumber = 4
+	elif "up" == direction:
+		directionNumber = 5
 	elif "down" == direction:
-		directionNumber = 2
+		directionNumber = 6
+	elif "boost" == direction:
+		directionNumber = 7
 	elif "stop" == direction:
-		directionNumber = 0
+		directionNumber = 8
 
 	sendMsgDriving(directionNumber, 0)
-	return
-
-def changeSpeed(speed):
-	logging.debug('changeSpeed: %s' % speed)
-	
-	speedNumber = 0
-	if "up" == speed:
-		speedNumber = 1
-	elif "down" == speed:
-		speedNumber = -1
-	sendMsgDriving(-1, speedNumber)
 	return
 
 def sendMsgDriving(direction, velocity):

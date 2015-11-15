@@ -11,7 +11,7 @@
 #include "DualMC33926MotorShield.h"
 #include "HMC5883L.h"
 
-#include "Compass.h"
+//#include "Compass.h"
 #include "CarHandle.h"
 
 void msgDrivingCallback( const my_smart_dog::msgDriving& msgDriving);
@@ -19,26 +19,26 @@ void echoCallback( const std_msgs::String& message);
 
 ros::NodeHandle  nodeHandle;
 ros::Subscriber<my_smart_dog::msgDriving> subscribeMsgDriving("msgDriving", msgDrivingCallback );
-ros::Subscriber<std_msgs::String> subscribeEcho("my_smart_dog_echo", echoCallback );
+//ros::Subscriber<std_msgs::String> subscribeEcho("my_smart_dog_echo", echoCallback );
 
-std_msgs::String str_msg;
-ros::Publisher logger("logger", &str_msg);
+//std_msgs::String str_msg;
+//ros::Publisher logger("logger", &str_msg);
 
-my_smart_dog::msgDrivingInfo msgDrivingInfo;
-ros::Publisher msgDrivingInfoPublisher("msgDrivingInfoPublisher", &msgDrivingInfo);
+//my_smart_dog::msgDrivingInfo msgDrivingInfo;
+//ros::Publisher msgDrivingInfoPublisher("msgDrivingInfoPublisher", &msgDrivingInfo);
 
 //Compass compass;
 CarHandle carHandle;
 
 void msgDrivingCallback( const my_smart_dog::msgDriving& msgDriving) {
 
-  String message;
-  message += " d=";
-  message += msgDriving.direction;
+  //String message;
+  //message += " d=";
+  //message += msgDriving.direction;
 
-  std_msgs::String log;
-  log.data = message.c_str();
-  logger.publish(&log);
+  //std_msgs::String log;
+  //log.data = message.c_str();
+  //logger.publish(&log);
 
   switch ( msgDriving.direction )
   {
@@ -76,17 +76,17 @@ void msgDrivingCallback( const my_smart_dog::msgDriving& msgDriving) {
 
 void echoCallback( const std_msgs::String& message) {
 
-  logger.publish( &message );
+  //logger.publish( &message );
 }
 
 void setup()
 {
   //  pinMode(13, OUTPUT);
   nodeHandle.initNode();
-  nodeHandle.advertise(logger);
-  nodeHandle.advertise(msgDrivingInfoPublisher);
+  //nodeHandle.advertise(logger);
+  //nodeHandle.advertise(msgDrivingInfoPublisher);
   nodeHandle.subscribe(subscribeMsgDriving);
-  nodeHandle.subscribe(subscribeEcho);
+  //nodeHandle.subscribe(subscribeEcho);
 
 //  compass.setup();
   carHandle.setup();

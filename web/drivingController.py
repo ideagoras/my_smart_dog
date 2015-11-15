@@ -28,7 +28,7 @@ def direction(value):
 @app.route("/speed/<value>")
 def speed(value):
 	logging.debug('speed: %s' % value)
-	rosDriving.changeSpeed(value)
+	rosDriving.changeDirection(value)
 	return render_template('main.html', **templateData)
 
 
