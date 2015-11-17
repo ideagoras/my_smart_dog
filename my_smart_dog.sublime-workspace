@@ -3,29 +3,34 @@
 	{
 		"selected_items":
 		[
+			[
+				"spee",
+				"speedNumber"
+			],
+			[
+				"di",
+				"directionNumber"
+			],
+			[
+				"res",
+				"resp1"
+			],
+			[
+				"msg",
+				"msgDrivingCallback"
+			],
+			[
+				"cha",
+				"changeSpeed"
+			],
+			[
+				"chang",
+				"changeDirection"
+			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "scripts.txt",
-			"settings":
-			{
-				"buffer_size": 555,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "import logging\nimport roslib; roslib.load_manifest('my_smart_dog')\nimport rospy\nimport sys\nfrom my_smart_dog.srv import *\nfrom my_smart_dog.msg import *\nfrom std_msgs.msg import String\n\ndrivingPub = None\n\ndef setup():\n	try:\n		global drivingPub\n		drivingPub = rospy.Publisher('msgDriving', msgDriving, queue_size=10)\n		rospy.init_node('ros_driving_node')\n		print \"setup rosDriving\"\n	except rospy.ServiceException, e:\n		print \"Service call failed: %s\"% e\n	\n\ndef changeDirection(direction):\n	logging.debug('changeDirection: %s' % direction)\n	#add_two_ints_client(4, 5)\n	#sendEcho()\n	directionNumber = 0\n	if \"left\" == direction:\n		directionNumber = 1\n	elif \"right\" == direction:\n		directionNumber = 2\n	elif \"forward\" == direction:\n		directionNumber = 3\n	elif \"back\" == direction:\n		directionNumber = 4\n	elif \"up\" == direction:\n		directionNumber = 5\n	elif \"down\" == direction:\n		directionNumber = 6\n	elif \"boost\" == direction:\n		directionNumber = 7\n	elif \"stop\" == direction:\n		directionNumber = 8\n\n	sendMsgDriving(directionNumber, 0)\n	return\n\ndef sendMsgDriving(direction, velocity):\n	try:\n		msg = msgDriving()\n		msg.direction = direction;\n		msg.velocity = velocity;\n		drivingPub.publish(msg)\n		logging.debug('success send')\n	except rospy.ServiceException, e:\n		print \"Service call failed: %s\"% e\n	return\n\ndef sendEcho():\n	try:\n		drivingPub.publish(\"hello echo\")\n		logging.debug('success send')\n	except rospy.ServiceException, e:\n		print \"Service call failed: %s\"% e\n	return\n\ndef add_two_ints_client(x, y):\n    #rospy.wait_for_service('add_two_ints')\n    try:\n        add_two_ints = rospy.ServiceProxy('add_two_ints', srvLegs)\n        resp1 = add_two_ints(x, y)\n        logging.debug('add two result: %d' % resp1.result)\n        return resp1.result\n    except rospy.ServiceException, e:\n    		print \"Service call failed: %s\"% e\n\n\nif __name__ == \"__main__\":\n	logging.basicConfig(level=logging.DEBUG)\n	setup()\n	changeDirection('left')\n	changeSpeed(100)",
-			"file": "web/rosDriving.py",
-			"file_size": 2001,
-			"file_write_time": 1447249446000000,
-			"settings":
-			{
-				"buffer_size": 1946,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Packages/User/ros.sublime-build",
 	"command_palette":
@@ -51,26 +56,32 @@
 	},
 	"file_history":
 	[
-		"/home/telltale/catkin_ws/src/my_smart_dog/CMakeLists.txt",
-		"/home/telltale/catkin_ws/src/my_smart_dog/msg/msgDriving.msg",
-		"/home/telltale/catkin_ws/src/my_smart_dog/scrypts.txt",
-		"/home/telltale/work/arduino/libraries/ros_lib/my_smart_dog/msgDriving.h",
-		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/my_smart_dog/msgDriving.h",
+		"/home/telltale/catkin_ws/src/my_smart_dog/scripts.txt",
+		"/home/telltale/catkin_ws/src/my_smart_dog/web/drivingController.py",
+		"/home/telltale/catkin_ws/src/my_smart_dog/web/templates/main.html",
+		"/home/telltale/catkin_ws/src/my_smart_dog/web/rosDriving.py",
+		"/home/telltale/catkin_ws/src/my_smart_dog/msg/msgDrivingInfo.msg",
 		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/dogino/dogino.ino",
-		"/home/telltale/catkin_ws/src/my_smart_dog/package.xml",
-		"/home/telltale/catkin_ws/src/my_smart_dog/msg/msgLegs.msg",
-		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/rosserial_arduino/Adc.h",
-		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/ros.h",
-		"/home/telltale/work/arduino-1.6.6/libraries/Servo/src/Servo.h",
-		"/home/telltale/Arduino/libraries/ros_lib/my_smart_dog/msgDriving.h",
+		"/home/telltale/catkin_ws/devel/include/my_smart_dog/msgDrivingInfo.h",
 		"/home/telltale/catkin_ws/devel/include/my_smart_dog/msgDriving.h",
-		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/actionlib_msgs/GoalStatusArray.h",
-		"/home/telltale/catkin_ws/devel/include/my_smart_dog/msgLegs.h",
-		"/home/telltale/work/arduino-1.6.6/libraries/ros_lib/rosserial_msgs/RequestParam.h",
+		"/home/telltale/catkin_ws/src/my_smart_dog/msg/msgDriving.msg",
+		"/home/telltale/catkin_ws/src/my_smart_dog/CMakeLists.txt",
+		"/home/telltale/catkin_ws/src/my_smart_dog/python/add_two_ints_server.py",
+		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/msgDriving/msgDriving.ino",
+		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/msgDriving/SDMsgDriving.h",
+		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/msgDriving/SDMsgEcho.h",
+		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/msgDriving/SDMsgLogger.h",
+		"/home/telltale/work/arduino/libraries/ros_lib/ros/node_handle.h",
+		"/home/telltale/work/arduino/libraries/ros_lib/ros.h",
+		"/home/telltale/catkin_ws/src/my_smart_dog/arduino/msgDriving/SDMsgDriving.cpp",
+		"/home/telltale/catkin_ws/src/my_smart_dog/python/add_two_ints_client.py",
+		"/home/telltale/catkin_ws/src/my_smart_dog/srv/srvLegs.srv",
+		"/home/telltale/catkin_ws/src/my_smart_dog/package.xml",
+		"/home/telltale/catkin_ws/src/my_smart_dog/web/hello_flask.py",
+		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsServiceClient.cpp",
 		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsServiceServer.cpp",
 		"/home/telltale/catkin_ws/src/my_smart_dog/launch/union.launch",
-		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsServiceClient.cpp",
-		"/home/telltale/catkin_ws/src/my_smart_dog/srv/srvLegs.srv",
+		"/home/telltale/catkin_ws/src/my_smart_dog/msg/msgLegs.msg",
 		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsPublisher.cpp",
 		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsSubscriber.cpp",
 		"/home/telltale/catkin_ws/src/my_smart_dog/src/MDLegsServiceClient",
@@ -111,62 +122,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "scripts.txt",
-					"settings":
-					{
-						"buffer_size": 555,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								123,
-								123
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "web/rosDriving.py",
-					"settings":
-					{
-						"buffer_size": 1946,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1037,
-								1037
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -230,6 +187,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 206.0,
+	"side_bar_width": 192.0,
 	"status_bar_visible": true
 }
